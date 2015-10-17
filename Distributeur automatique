@@ -1,0 +1,57 @@
+package exo3;
+
+import java.util.Scanner;
+
+/**
+ * Created by Princess Of Persia on 04/10/2015.
+ */
+public class DAB extends Compte {
+    public DAB(int NDC, double Solde, double Taux) {
+        super(NDC, Solde, Taux);
+    }
+
+    public void Menu(){
+        System.out.println("bienvenu au service DAB :)");
+        System.out.println("Voici Nos Services Disponible !");
+        System.out.println("1-  Affichage De Votre Compte");
+        System.out.println("2-  Calcule De votre Interets");
+        System.out.println("3-  Modification De Votre Compte");
+        System.out.println("4-  Pour Quiter");
+    }
+    Scanner scanner = new Scanner(System.in);
+    Compte C = new Compte(NDC,Solde,Taux);
+    public void Distributeur(){
+        boolean rep;
+        int choix;
+        do {
+            System.out.println("Choisi Un De Nous Services !");
+            choix = scanner.nextInt();
+            switch (choix){
+                case 1:
+                    C.toString();
+                    System.out.println(C);
+                    break;
+                case 2:
+                    C.Solde = Calcule(Taux);
+                    System.out.println("Votre Taux d'Interet Est De   " + C.Solde);
+                    break;
+                case 3:
+                    System.out.println("Generer Le Mantant Que Vous Voulez Modifier  ");
+                    double Mantant = scanner.nextDouble();
+                    C.Solde = modification(Mantant);
+                    System.out.println("Votre Solde Est Maintenant De   "+C.Solde);
+                    break;
+                case 4:
+                    System.out.println("On Vous Remercie Pour votre Confiance");
+                    break;
+
+                default :
+                    System.out.println("Choisi Un De Nous Service Mentionner svp");
+            }
+            System.out.println("Veux Tu Choisir Un Autre Service (o/n)");
+            String ans = scanner.next();
+            rep = ans.equals("o");
+        }while (rep);
+
+    }
+}
