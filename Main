@@ -1,0 +1,28 @@
+package exo3;
+
+import java.util.Scanner;
+
+/**
+ * Created by Princess Of Persia on 04/10/2015.
+ */
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Quel est ton Nom\t");
+        String Nom = scanner.next();
+        System.out.print("combien d'argent dispose tu dans ton compte\t");
+        double Solde = scanner.nextDouble();
+        System.out.print("quel est ton taux d'interet\t");
+        double Taux = scanner.nextDouble();
+        System.out.print("ecris ton numero de compte pour commencer le traitement\t");
+        int NumCompte = scanner.nextInt();
+
+        DAB C = new DAB(NumCompte,Solde,Taux);
+
+        C.Menu();
+
+        C.Distributeur();
+
+        System.out.println("Soyez Toujours Les Bienvenus :) ");
+    }
+}
