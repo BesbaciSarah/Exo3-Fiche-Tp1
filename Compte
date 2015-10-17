@@ -1,0 +1,55 @@
+package exo3;
+
+import java.util.Scanner;
+
+/**
+ * Created by Princess Of Persia on 03/10/2015.
+ */
+public class Compte {
+    protected int NDC;
+    protected double Solde;
+    protected double Taux;
+
+    public Compte(int NDC,double Solde,double Taux){
+        this.NDC = NDC;
+        this.Solde = Solde;
+        this.Taux = Taux;
+    }
+
+    @Override
+    public String toString() {
+        return "Numero De Compte = "+NDC+"\nSolde = "+Solde;
+    }
+
+    public double Calcule(double Taux){
+        return (Solde*Taux/100);
+    }
+
+    Scanner scanner = new Scanner(System.in);
+    int R;
+
+    public double modification(double Montant) {
+        System.out.print("Si vous voulez Ajouter un mantant appuyer sur 1!\nSinon\n\tSi vous voulez soustraire un mantant appuyer sur 2 !\n\t\tsinon appuyer sur 3 pour ne rien modifier\n");
+        do {
+            R = scanner.nextInt();
+            switch (R) {
+                case 1:
+                    Solde += Montant;
+                    break;
+                case 2:
+                    if(Solde >= Montant)
+                    Solde -= Montant;
+                    else
+                        System.out.println("votre solde n'est pas suffisant");
+                    break;
+                case 3:
+                    System.out.println("votre Solde n'a pas etais modifier");
+                    break;
+                default:
+                    System.out.println("1 ou 2 ou 3 svp ! ");
+        }
+
+        return Solde;
+    }while(R != 1 || R != 2 || R != 3);
+    }
+}
